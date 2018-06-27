@@ -25,8 +25,6 @@ Now re-trying the webpage from the same IP address will give 403 access denied e
 
 This demonstrates capabilites of AWS services to protect the end points in real-time. In a real life scenario, updating the IP addresses in the AWS WAF should be automated using AWS Lambda. We are doing this manually in this excercise so that participants can understand each steps.
 
-## Why serverless and DynamoDB in the demo
-To keep the cost low for the participants. It will be few pences. Please delete the cloudformation stack after the demo to avoid further costs.
 
 ## Reference Architecture
 
@@ -47,8 +45,8 @@ src="http://devsecops-demo-images.s3-website-eu-west-1.amazonaws.com/Screen%20Sh
 * If you are login as a "Root User" then you may not need to do the above mentioned step. 
 
 ```
-Top Tip: As you follow the instructions, please create a notes.txt file and copy top tips links that you generate
-. <br> It will be handy when you have to setup the configurations to run the application
+Top Tip: As you follow the instructions, please create a notes.txt file and copy key config details mentioned in Tips sections. 
+. <br> It will be handy when you have to setup the configurations like S3 bucket, end-point URL to run the application
 ```
 
 
@@ -107,7 +105,7 @@ src="https://s3-eu-west-1.amazonaws.com/devsecops-demo-images/Screen+Shot+2018-0
 <img alt="Service Endpoint details" src="https://s3-eu-west-1.amazonaws.com/devsecops-demo-images/Screen+Shot+2018-06-26+at+16.38.35.png">
 
 ```
-Top Tip: note down the follwoing in your notes.txt<br> Service Endpoint : https://7aa42aaq5h.execute-api.eu-west-1.amazonaws.com/dev
+Top Tip: note down the `ServiceEndPoint` URL in your notes.txt<br> Service Endpoint : https://7aa42aaq5h.execute-api.eu-west-1.amazonaws.com/dev
 ```
 
 ### Step 3a: Setup AWS WAF ACL using OWASP Top 10
@@ -116,7 +114,7 @@ Top Tip: note down the follwoing in your notes.txt<br> Service Endpoint : https:
 * All the defaults are prepopulated. **DO NOT CHANGE** 
 * Click few `Next` button till you reach `Create Stack`
 
-* It will take around 10 minutes to finish
+* It will take around 10 minutes to finish. Proceed with Slack configurations in the mean time.
 
 
 ### Step 4: Slack incoming webhook
@@ -126,7 +124,7 @@ The slack channel will be used to intimate the DevSecOps team of an honeypot att
 * Now create an incoming webhook URL - https://api.slack.com/incoming-webhooks
 
 ```
-Tip: Slack Incoming webhook URL: https://api.slack.com/XXXXXX/YYYYYY/YOURWEBHOOKID
+Tip: note down the Slack Incoming webhook URL in your notes.txt: https://api.slack.com/XXXXXX/YYYYYY/YOURWEBHOOKID
 ```
 
 ### Step 5: Update the Front end and upload
@@ -152,9 +150,9 @@ src="https://s3-eu-west-1.amazonaws.com/devsecops-demo-images/Screen+Shot+2018-0
 ```
 
 * Now upload the following files to your s3 bucket.
- * notifications-config.json
- * functions.js
- * index.html
+  * notifications-config.json
+  * functions.js
+  * index.html
 * In the permissions during upload ensure to select *"Grant public read access to this object"*
 <img alt="Make files Read Only"  width="300" height="300" src="https://s3-eu-west-1.amazonaws.com/devsecops-demo-images/makingS3ObjectsPublic.png">
 Now your setup is complete.
@@ -168,7 +166,7 @@ Now your setup is complete.
 <img alt="S3 WebURL"  width="300" height="300" src="https://s3-eu-west-1.amazonaws.com/devsecops-demo-images/WebhostingURL.png">
 
 ```
-Top Tip: website URL : http://mywebsite-bucket.s3-website-eu-west-1.amazonaws.com/
+Top Tip: This is the URL for launching your website - website URL : http://mywebsite-bucket.s3-website-eu-west-1.amazonaws.com/
 ```
 
 # Lets begin the testing!
@@ -188,10 +186,10 @@ You will see an alert when it is successfully updated.
 * Now copy the `Source IP Address` mentioned in the slack message..
 
 ## Setting up End point protection by enabling WAF and Cloudfront.
-Setups shown in Workshop
+Setup shown in Workshop demo
 
 ## Update WAF with the IP address to block
-setup as shown in workshop
+Setup shown in Workshop demo
 
 ## Test access by BOT
 <br>The Ip address is blocked and you have no more access to the site from this IP. <br>
