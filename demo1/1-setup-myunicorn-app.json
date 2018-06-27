@@ -133,7 +133,8 @@
       "Properties": {
         "Code": {
           "S3Bucket": "nextunicorn-app-dev-serverlessdeploymentbucket-l5syi20va3uw",
-          "S3Key": "serverless/nextunicorn-app/dev/1530016035711-2018-06-26T12:27:15.711Z/nextunicorn-app.zip"
+          "S3Key": "serverless/nextunicorn-app-1/dev/1530113095714-2018-06-27T15:24:55.714Z/nextunicorn-app-1.zip"
+		
         },
         "FunctionName": "nextunicorn-app-dev-newsubscriber",
         "Handler": "subscribe/newsubscriber.create",
