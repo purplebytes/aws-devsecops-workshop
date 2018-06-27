@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Deploy Next unicorn app and the proactive security features",
+  "Description": "Deploy NextUnicorn app with HoneyPot for proactive defense",
   "Parameters": {
    "WebsiteBucket": {
             "Description": "Name of the bucket where you will be hosting your website ",
@@ -133,8 +133,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "nextunicorn-app-dev-serverlessdeploymentbucket-l5syi20va3uw",
-          "S3Key": "serverless/nextunicorn-app-1/dev/1530113095714-2018-06-27T15:24:55.714Z/nextunicorn-app-1.zip"
-		
+          "S3Key": "serverless/nextunicorn-app/dev/1530114732720-2018-06-27T15:52:12.720Z/nextunicorn-app.zip"
         },
         "FunctionName": "nextunicorn-app-dev-newsubscriber",
         "Handler": "subscribe/newsubscriber.create",
@@ -158,14 +157,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "NewsubscriberLambdaVersionVtHK53ViPxOWwyY8qll1f8DYcPkW5DYRHEKaldqBk": {
+    "NewsubscriberLambdaVersionGuS2MqBLwqoYptBtha35nAhZnGcyLslBklmX25qCEkA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "NewsubscriberLambdaFunction"
         },
-        "CodeSha256": "C/lBSDETTe/BN1tZKviKJPRrF7X/mIyJl78yTfb56w0="
+        "CodeSha256": "4+bFWG+YDFK5Y1XCYSngjPHYyORKyhHFv49Mr642ANY="
       }
     },
     "HoneylambdaLambdaFunction": {
@@ -173,7 +172,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "nextunicorn-app-dev-serverlessdeploymentbucket-l5syi20va3uw",
-          "S3Key": "serverless/nextunicorn-app/dev/1530016035711-2018-06-26T12:27:15.711Z/nextunicorn-app.zip"
+          "S3Key": "serverless/nextunicorn-app/dev/1530114732720-2018-06-27T15:52:12.720Z/nextunicorn-app.zip"
         },
         "FunctionName": "nextunicorn-app-dev-honeylambda",
         "Handler": "handler.honeylambda",
@@ -189,7 +188,7 @@
         "Environment": {
           "Variables": {
             "configFile": "s3",
-            "s3Bucket": { "Ref": "WebsiteBucket" }, 
+            "s3Bucket":{ "Ref": "WebsiteBucket" }, 
             "s3Key": "notifications-config.json"
           }
         }
@@ -199,14 +198,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "HoneylambdaLambdaVersionnuxUjf70ryYHkyf83P8G2g3rWy74KsQnmeoF3cP94s": {
+    "HoneylambdaLambdaVersionFnH1z7kQ5MWCFlaCBTzGLyWR6ITcnqg190C9A8QDH8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HoneylambdaLambdaFunction"
         },
-        "CodeSha256": "C/lBSDETTe/BN1tZKviKJPRrF7X/mIyJl78yTfb56w0="
+        "CodeSha256": "4+bFWG+YDFK5Y1XCYSngjPHYyORKyhHFv49Mr642ANY="
       }
     },
     "ApiGatewayRestApi": {
@@ -394,7 +393,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1530016035921": {
+    "ApiGatewayDeployment1530114733124": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -532,13 +531,13 @@
     "NewsubscriberLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "NewsubscriberLambdaVersionVtHK53ViPxOWwyY8qll1f8DYcPkW5DYRHEKaldqBk"
+        "Ref": "NewsubscriberLambdaVersionGuS2MqBLwqoYptBtha35nAhZnGcyLslBklmX25qCEkA"
       }
     },
     "HoneylambdaLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HoneylambdaLambdaVersionnuxUjf70ryYHkyf83P8G2g3rWy74KsQnmeoF3cP94s"
+        "Ref": "HoneylambdaLambdaVersionFnH1z7kQ5MWCFlaCBTzGLyWR6ITcnqg190C9A8QDH8"
       }
     },
     "ServiceEndpoint": {
